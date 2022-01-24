@@ -8,6 +8,7 @@ import axios from 'axios'
 import { useLocation } from 'react-router'
 import { login } from '../../service/login'
 import { setAuthStatusAction } from '../../store/reducers/authStorage/authStore'
+import {API_URL} from "../../http";
 
 export const Header = () => {
     const dispatch = useDispatch();
@@ -43,7 +44,8 @@ export const Header = () => {
                 // dispatch(setAccessAction(response.data.refresh));
                 // localStorage.setItem('accessToken', response.data.access);
                 // localStorage.setItem('refreshToken', response.data.refresh);
-                window.location.href='http://localhost:3000/';
+                // window.location.href='http://localhost:3000/';
+                window.location.href=`${API_URL}/`;
               })
               .catch((err) => {
                 //todo toast сервер временно недоступен

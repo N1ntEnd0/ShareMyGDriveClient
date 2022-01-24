@@ -4,6 +4,7 @@ import {Button} from "@consta/uikit/Button";
 import { toast } from 'react-hot-toast'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
+import {API_URL} from "../../http";
 
 export const Footer = ({ items }) => {
     const access = useSelector(state => state.accessToken.accessToken)
@@ -23,7 +24,8 @@ export const Footer = ({ items }) => {
     const handleClick = () => {
         axios({
             method: 'POST',
-            url: `http://localhost:8000/api/v1/files/${items.id}/download/`,
+            // url: `http://localhost:8000/api/v1/files/${items.id}/download/`,
+            url: `${API_URL}/api/v1/files/${items.id}/download/`,
             headers: {
                 'Authorization': `Bearer ${access}`
             },
@@ -35,6 +37,9 @@ export const Footer = ({ items }) => {
             document.body.appendChild(element);
             element.click();
             document.body.removeChild(element);
+              // console.log('aa')
+
+
 
              /* const url = window.URL
                 .createObjectURL(new Blob([resp.data.download_url]));
